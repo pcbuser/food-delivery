@@ -8,7 +8,6 @@ http://msaez.io/#/storming/NVaFbcVDMkP3uU83TbQd72J4OqU2/mine/c004806409d14aa5fe4
 
 ![IMG_3081](https://user-images.githubusercontent.com/61151016/79801874-e2692d00-8399-11ea-8c82-f10dee2061d3.jpg)
 
-![image](https://user-images.githubusercontent.com/487999/79708354-29074a80-82fa-11ea-80df-0db3962fb453.png)
 
 # 예제 - 도서대여
 
@@ -19,7 +18,7 @@ http://msaez.io/#/storming/NVaFbcVDMkP3uU83TbQd72J4OqU2/mine/c004806409d14aa5fe4
 
 # Table of contents
 
-- [예제 - 도](#---)
+- [예제 - 도서대여](#---)
   - [서비스 시나리오](#서비스-시나리오)
   - [체크포인트](#체크포인트)
   - [분석/설계](#분석설계)
