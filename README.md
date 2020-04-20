@@ -1,7 +1,11 @@
-방금 받은 msaez 링크입니다
+EVENT STORMING 결과 
+
+VERSION_0.9
 http://msaez.io/#/storming/NVaFbcVDMkP3uU83TbQd72J4OqU2/mine/3c8f5eeec2a5b93ab3509e91c18528a8/-M5M9K_1izVA8qGysnfy
 
+VERSION_0.1
 http://msaez.io/#/storming/NVaFbcVDMkP3uU83TbQd72J4OqU2/mine/c004806409d14aa5fe40278ad20b8bc4/-M5LBN5LgZUeVj0pCgKU
+
 
 ![image](https://user-images.githubusercontent.com/487999/79708354-29074a80-82fa-11ea-80df-0db3962fb453.png)
 
