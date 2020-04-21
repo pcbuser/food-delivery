@@ -1,0 +1,70 @@
+==============================================
+***cluster에 kafka설치 : azure cloud shell에서
+==============================================
+***cluster에 kafka설치
+kubectl --namespace kube-system create sa tiller      # helm 의 설치관리자를 위한 시스템 사용자 생성
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+helm repo update
+kubectl create ns kafka
+helm install my-kafka --namespace kafka incubator/kafka
+
+
+===============================================================
+cloud에서 kakfa topic 만들고 리스닝 띄움
+===============================================================
+0. 토픽리스트 보기
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --list
+
+1. 토픽생성
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --topic reservationBook --create --partitions 1 --replication-factor 1
+
+2. 이벤트 수신
+kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic reservationBook --from-beginning
+
+
+===============================================================
+어플리케이션 패키징과 배포(azure)
+===============================================================
+azure cloud shell에서
+1. 확인
+$ kubectl get svc
+$ kubctl get po
+
+2. github가서 소스코드 clone 받음
+$git clone http://~~~~.git
+
+3. cd 다운받은 위치 ( pom.xml 파일 위치)
+4. mvn pakage  
+  cd target 해서
+  ~.jar 파일 생기는 것 확인
+5. cd .. 
+   Dockerfile 있는 위치로 이동
+6. 도커라이징
+   $az acr build --registry event --image user09registry.azure.io/gateway:v1 .
+   <--- 이미지 버전까지 확인
+       빌드와 푸시가 같이 됨
+
+9. kubectl apply -f deployment.yaml
+10. kubectl apply -f service.yaml
+11. kubectl get svc
+   kubectk get deploy
+12. kubectl get po
+     imageFullBackoff 오류시 : 이미지명이 달라서 발생
+13. kubectl get deloy -o -w
+14 . 이미지만 바꿀 것이라 wokfloy애서 set image 검색
+$kubectl set image deploy monolith monolith=gcr.io/eventstorming-200129/monolith:latest
+
+$kubectl get po
+
+15 .$kubectl get svc
+    ----gateway-00030303030----
+16. $kubectl edit svc gateway-00030303030
+    yaml파일이 열리고 tye: ClusterIP 부분을 LoadBalancer 로 수정 후 저장
+17. $kubectl get svc 하면 LoadBalancer로 변경되고 외부 ip가 노출됨
+18 .브라우저 에서 ip:8080 치고 확인
+
+
+
+
