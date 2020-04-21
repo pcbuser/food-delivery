@@ -43,6 +43,10 @@ http://msaez.io/#/storming/NVaFbcVDMkP3uU83TbQd72J4OqU2/mine/c004806409d14aa5fe4
 기능적 요구사항
 * 도서상태:  ```01(대여가능)``` ```02(대여중)```
 1. 도서관리자가 도서를 등록한다. (도서id,도서명,도서상태=01)
+```sh
+http http://localhost:8081/book bookName=AAA bookStatus=01
+http http://localhost:8081/book bookName=BBB bookStatus=01
+```
 1. 고객이 도서를 선택하여 예약한다.
 1. 예약 후 도서정보 상태를 업데이트 한다. (02)  
 1. 예약 후 대여정보에 등록된다. (대여상태=01)
