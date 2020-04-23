@@ -257,6 +257,12 @@ Transfer-Encoding: chunked
 
 C:\Users\SKCC>
 
+kafka 로그(cancel 테스트)
+{"eventType":"RepairPlaced","timestamp":"20200422183758","id":1,"status":"01","acceptid":1,"me":true}
+{"eventType":"AcceptCanceled","timestamp":"20200422183827","id":1,"acceptid":null,"status":null,"me":true}
+{"eventType":"RepairPlaced","timestamp":"20200422183827","id":2,"status":"99","acceptid":null,"me":true}
+
+
 
 cicd
 ![image](https://user-images.githubusercontent.com/63028551/80045510-99a0a800-8542-11ea-8a2d-e31ac44400f2.png)
