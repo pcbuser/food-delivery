@@ -110,6 +110,9 @@
 
 * 이벤트스토밍 결과: http://msaez.io/#/storming/E0iENbRlgeQJvFqeCX3bDonuEN53/mine/8cf95c39323bdd4a40f6adfa4ea652b5/-M5UHawfGxECGvgadAZ_
 
+![image](https://user-images.githubusercontent.com/63028551/80045331-fcde0a80-8541-11ea-88a3-fd000c62ac96.png)
+
+
 
 - AS-IS 조직
   ![image](https://user-images.githubusercontent.com/487999/79684144-2a893200-826a-11ea-9a01-79927d3a0107.png)
