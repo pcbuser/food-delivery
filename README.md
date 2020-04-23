@@ -116,6 +116,7 @@
 
 
 테스트 로그(local)
+
 C:\Users\SKCC>http http://localhost:8081/acceptProcessings carno="001" carname="grandure" ownername="PARK1" status="01" reqcontents="REPAIR22222888888822222222222111111111"
 HTTP/1.1 201
 Content-Type: application/json;charset=UTF-8
@@ -270,6 +271,321 @@ cloud배포
 
 
 
+
+cloud 테스트
+C:\workspace\carrepair\gateway>http http://52.231.115.78:8080/repairProcessings
+HTTP/1.1 200 OK
+Content-Type: application/hal+json;charset=UTF-8
+Date: Thu, 23 Apr 2020 03:08:45 GMT
+transfer-encoding: chunked
+
+{
+    "_embedded": {
+        "repairProcessings": [
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://repairprocessings:8080/repairProcessings/1"
+                    },
+                    "self": {
+                        "href": "http://repairprocessings:8080/repairProcessings/1"
+                    }
+                },
+                "acceptid": 1,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://repairprocessings:8080/repairProcessings/2"
+                    },
+                    "self": {
+                        "href": "http://repairprocessings:8080/repairProcessings/2"
+                    }
+                },
+                "acceptid": 2,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://repairprocessings:8080/repairProcessings/3"
+                    },
+                    "self": {
+                        "href": "http://repairprocessings:8080/repairProcessings/3"
+                    }
+                },
+                "acceptid": 3,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://repairprocessings:8080/repairProcessings/4"
+                    },
+                    "self": {
+                        "href": "http://repairprocessings:8080/repairProcessings/4"
+                    }
+                },
+                "acceptid": 4,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            }
+        ]
+    },
+    "_links": {
+        "profile": {
+            "href": "http://repairprocessings:8080/profile/repairProcessings"
+        },
+        "self": {
+            "href": "http://repairprocessings:8080/repairProcessings{?page,size,sort}",
+            "templated": true
+        }
+    },
+    "page": {
+        "number": 0,
+        "size": 20,
+        "totalElements": 4,
+        "totalPages": 1
+    }
+}
+
+
+C:\workspace\carrepair\gateway>http http://52.231.115.78:8080/acceptProcessings
+HTTP/1.1 200 OK
+Content-Type: application/hal+json;charset=UTF-8
+Date: Thu, 23 Apr 2020 03:09:01 GMT
+transfer-encoding: chunked
+
+{
+    "_embedded": {
+        "acceptProcessings": [
+            {
+                "_links": {
+                    "acceptProcessing": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/1"
+                    },
+                    "self": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/1"
+                    }
+                },
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "acceptProcessing": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/2"
+                    },
+                    "self": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/2"
+                    }
+                },
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "acceptProcessing": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/3"
+                    },
+                    "self": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/3"
+                    }
+                },
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "acceptProcessing": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/4"
+                    },
+                    "self": {
+                        "href": "http://acceptprocessings:8080/acceptProcessings/4"
+                    }
+                },
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "reqcontents": "repair",
+                "status": "01"
+            }
+        ]
+    },
+    "_links": {
+        "profile": {
+            "href": "http://acceptprocessings:8080/profile/acceptProcessings"
+        },
+        "self": {
+            "href": "http://acceptprocessings:8080/acceptProcessings{?page,size,sort}",
+            "templated": true
+        }
+    },
+    "page": {
+        "number": 0,
+        "size": 20,
+        "totalElements": 4,
+        "totalPages": 1
+    }
+}
+
+
+C:\workspace\carrepair\gateway>http http://52.231.115.78:8080/logs
+HTTP/1.1 200 OK
+Content-Type: application/hal+json;charset=UTF-8
+Date: Thu, 23 Apr 2020 03:09:19 GMT
+transfer-encoding: chunked
+
+{
+    "_embedded": {
+        "logs": [
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/2"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/2"
+                    }
+                },
+                "acceptid": 2,
+                "carname": "grandure",
+                "carno": "002",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/3"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/3"
+                    }
+                },
+                "acceptid": 3,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/4"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/4"
+                    }
+                },
+                "acceptid": 4,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/5"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/5"
+                    }
+                },
+                "acceptid": 1,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/6"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/6"
+                    }
+                },
+                "acceptid": 2,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/7"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/7"
+                    }
+                },
+                "acceptid": 3,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "log": {
+                        "href": "http://logs:8080/logs/8"
+                    },
+                    "self": {
+                        "href": "http://logs:8080/logs/8"
+                    }
+                },
+                "acceptid": 4,
+                "carname": "grandure",
+                "carno": "001",
+                "ownername": "PARK1",
+                "status": "01"
+            }
+        ]
+    },
+    "_links": {
+        "profile": {
+            "href": "http://logs:8080/profile/logs"
+        },
+        "search": {
+            "href": "http://logs:8080/logs/search"
+        },
+        "self": {
+            "href": "http://logs:8080/logs"
+        }
+    }
+}
+
+
+C:\workspace\carrepair\gateway>
 
 
 
