@@ -114,6 +114,170 @@
 
 
 
+
+테스트 로그(local)
+C:\Users\SKCC>http http://localhost:8081/acceptProcessings carno="001" carname="grandure" ownername="PARK1" status="01" reqcontents="REPAIR22222888888822222222222111111111"
+HTTP/1.1 201
+Content-Type: application/json;charset=UTF-8
+Date: Wed, 22 Apr 2020 09:37:58 GMT
+Location: http://localhost:8081/acceptProcessings/1
+Transfer-Encoding: chunked
+
+{
+    "_links": {
+        "acceptProcessing": {
+            "href": "http://localhost:8081/acceptProcessings/1"
+        },
+        "self": {
+            "href": "http://localhost:8081/acceptProcessings/1"
+        }
+    },
+    "carname": "grandure",
+    "carno": "001",
+    "ownername": "PARK1",
+    "reqcontents": "REPAIR22222888888822222222222111111111",
+    "status": "01"
+}
+
+
+C:\Users\SKCC>http http://localhost:8082/repairProcessings
+HTTP/1.1 200
+Content-Type: application/hal+json;charset=UTF-8
+Date: Wed, 22 Apr 2020 09:38:04 GMT
+Transfer-Encoding: chunked
+
+{
+    "_embedded": {
+        "repairProcessings": [
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://localhost:8082/repairProcessings/1"
+                    },
+                    "self": {
+                        "href": "http://localhost:8082/repairProcessings/1"
+                    }
+                },
+                "acceptid": 1,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "REPAIR22222888888822222222222111111111",
+                "status": "01"
+            }
+        ]
+    },
+    "_links": {
+        "profile": {
+            "href": "http://localhost:8082/profile/repairProcessings"
+        },
+        "self": {
+            "href": "http://localhost:8082/repairProcessings{?page,size,sort}",
+            "templated": true
+        }
+    },
+    "page": {
+        "number": 0,
+        "size": 20,
+        "totalElements": 1,
+        "totalPages": 1
+    }
+}
+
+
+C:\Users\SKCC>http PATCH http://localhost:8081/cancel id=1
+HTTP/1.1 200
+Content-Length: 0
+Date: Wed, 22 Apr 2020 09:38:27 GMT
+
+
+
+
+C:\Users\SKCC>http http://localhost:8082/repairProcessings
+HTTP/1.1 200
+Content-Type: application/hal+json;charset=UTF-8
+Date: Wed, 22 Apr 2020 09:38:32 GMT
+Transfer-Encoding: chunked
+
+{
+    "_embedded": {
+        "repairProcessings": [
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://localhost:8082/repairProcessings/1"
+                    },
+                    "self": {
+                        "href": "http://localhost:8082/repairProcessings/1"
+                    }
+                },
+                "acceptid": 1,
+                "carname": "grandure",
+                "carno": "001",
+                "owername": "PARK1",
+                "reqcontents": "REPAIR22222888888822222222222111111111",
+                "status": "01"
+            },
+            {
+                "_links": {
+                    "repairProcessing": {
+                        "href": "http://localhost:8082/repairProcessings/2"
+                    },
+                    "self": {
+                        "href": "http://localhost:8082/repairProcessings/2"
+                    }
+                },
+                "acceptid": null,
+                "carname": null,
+                "carno": null,
+                "owername": null,
+                "reqcontents": null,
+                "status": "99"
+            }
+        ]
+    },
+    "_links": {
+        "profile": {
+            "href": "http://localhost:8082/profile/repairProcessings"
+        },
+        "self": {
+            "href": "http://localhost:8082/repairProcessings{?page,size,sort}",
+            "templated": true
+        }
+    },
+    "page": {
+        "number": 0,
+        "size": 20,
+        "totalElements": 2,
+        "totalPages": 1
+    }
+}
+
+
+C:\Users\SKCC>
+
+
+cicd
+![image](https://user-images.githubusercontent.com/63028551/80045510-99a0a800-8542-11ea-8a2d-e31ac44400f2.png)
+
+
+
+
+cloud배포
+
+![image](https://user-images.githubusercontent.com/63028551/80045771-6d395b80-8543-11ea-9382-e4e20f2742ba.png)
+
+
+
+
+
+
+
+
+
+
+
+
 - AS-IS 조직
   ![image](https://user-images.githubusercontent.com/487999/79684144-2a893200-826a-11ea-9a01-79927d3a0107.png)
 
