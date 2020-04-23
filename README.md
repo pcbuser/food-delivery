@@ -27,15 +27,51 @@
 
 # 서비스 시나리오
 
-배달의 민족 커버하기 - https://1sung.tistory.com/106
+[차량수리시스템 개요]
+서비스명 : 차량접수, 차량수리, 차량진행상태로그
+    차량수리를 위해 접수(accept)를 하면 접수, 수리, 로그에 등록
+    차량접수 시 수리에 등록하는 것은 pub/sub
+    차량수리완료시 수리부분 status 값을 02로 변경
+    차량접수를 취소하면 수리의 status 값을 99로 변경
+    접수취소시 수리에  업데이트 하는 것은 req/res
 
-기능적 요구사항
-1. 고객이 차량수리를 접수(Accept) 한다.
-1. 차량접수 하면 차량 수리에 pub/sub 으로 저장 한다. status 01
-1. 차량 수리완료 하면 차량수리 status를 02로 바꾼다.
-1. 차량접수 취소하면 차량수리 status를 99로 바꾼다.
-1. 가각의 정보는 Myapage인 logs에 저장한다.
+[시나리오]
+고객이 차량수리를 접수(Accept) 한다.
+차량접수 하면 차량 수리에 pub/sub 으로 저장 한다. status 01
+==> 접수, 수리, 로그에 status 01로 저장
+http http://52.231.115.78:8080/acceptProcessings carno="001" carname="grandure" ownername="PARK1" status="01" reqcontents="repair"
 
+이벤트 발생시 정보는 Myapage인 logs에 저장한다.
+http http://52.231.115.78:8080/logs
+
+차량 수리완료 하면 차량수리 status를 02로 바꾼다.
+http PATCH  http://localhost:8088/repairProcessings/cancel id=1 status="02"
+
+
+차량접수 취소하면 차량수리 status를 99로 바꾼다.
+http PATCH http://52.231.115.78:8080/acceptProcessing/repairProcessings/cancel id=1 status=99
+
+테스트결과log
+https://github.com/pcbuser/resultreport
+
+
+github 리파지토리
+https://github.com/pcbuser/gatewaynew
+https://github.com/pcbuser/Accept
+https://github.com/pcbuser/Repair
+https://github.com/pcbuser/Mypagenew
+
+
+
+
+
+첫번째이벤트 생성하는 주소
+http http://52.231.115.78:8080/acceptProcessings carno="001" carname="grandure" ownername="PARK1" status="01" reqcontents="repair"
+
+
+http http://52.231.115.78:8080/acceptProcessings
+http http://52.231.115.78:8080/repairProcessings
+http http://52.231.115.78:8080/logs
 
 
 비기능적 요구사항
